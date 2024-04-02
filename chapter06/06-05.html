@@ -60,6 +60,58 @@
     console.log(product3)
     console.log(product4)
 
+    //객체 전개 연산자
+    //객체도 깊은 복사를 할 때 전개 연산자를 사용할 수 있다
+    //{...객체}
+
+    //얕은 복사
+    const cloud={
+      name:"구름",
+      age:6,
+      species:"강아지"
+    }
+    const star=cloud
+    star.name="별이"
+    console.log(cloud)
+    console.log(star)
+    
+    const sky={...cloud}
+    sky.name="하늘이"
+    console.log(cloud)
+    console.log(sky)
+
+    //전개 연산자를 사용한 배열 요소 추가
+    //[...배열,요소,요소]
+    const p3=["우유","식빵"]
+    const p4=["고구마",...p3,"토마토"]
+    console.log(p4)
+
+    //다른 2개 이상의 배열을 붙일 때도 활용할 수 있다
+    const p5=["우유","식빵"]
+    const p6=["고구마","토마토"]
+    console.log([...p5,...p6])
+    console.log([...p6,...p5])
+
+    //전개 연산자를 사용한 객체 요소 추가
+    //{...객체,자료,자료,자료}
+    const cloud1={
+      name:"구름",
+      age:6,
+      species:"강아지"
+    }
+    const star1={
+      ...cloud1,
+      name:"별",//키 이름이 같을 경우 기존의 속성 덮어 쓰기
+      vaccination:true
+    }
+    console.log(star1)
+    //전개 부분 뒤로 이동 하기
+    const star2={
+      name:"별",
+      vaccination:true,
+      ...cloud1,
+    }
+    console.log(star2)
   </script>
 </body>
 </html>
